@@ -1,5 +1,7 @@
 <?php
-    $request = str_replace('/php/mvcProject', '', $_SERVER['REQUEST_URI']); // récupère tout après nom de domaine puis enlève les sous dossier
+    require 'ressources/config.php';
+
+    $request = str_replace($url, '', $_SERVER['REQUEST_URI']); // récupère tout après nom de domaine puis enlève les sous dossier
     $uri = parse_url($request, PHP_URL_PATH); // enlève les Get etc..
     $split_uri = explode('/', $uri); // tableau de chaque mot séparé
     $segments = array_filter($split_uri); // supprime les éléments null du tableau (le premier étant du null du au premier /)
