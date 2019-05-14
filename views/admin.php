@@ -23,6 +23,10 @@
             case 'users':
                 include 'views/adminUsers.php';
                 break;
+
+            case 'addUser':
+                include 'views/adminAddUser.php';
+                break;
             
             case 'modifyUser':
                 include 'views/adminUserMod.php';

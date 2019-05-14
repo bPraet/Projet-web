@@ -5,5 +5,5 @@
     $db_login = 'root';
 
     //URL
-    $url = '/php/Projet-web';
+    $url = '/Projet-web-master';
 ?>

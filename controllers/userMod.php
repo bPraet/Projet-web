@@ -14,8 +14,10 @@
         exit();
     }
     $user = User::getUserByLogin($_GET['login']);
-    if($_SESSION['login'] == $_GET['login']) //Si changement du login de l'admin connecté actualiser avec le nouveau
+    if($_SESSION['login'] == $_GET['login'])
         $_SESSION['login'] = $_POST['login'];
+    if($_POST['password'] != "")
+        $user->set('password',password_hash($_POST['password'], PASSWORD_DEFAULT));
     $user->set('login',$_POST['login']);
     $user->set('name',$_POST['name']);
     $user->set('firstname',$_POST['firstname']);
