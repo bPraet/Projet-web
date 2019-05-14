@@ -1,4 +1,5 @@
 <script src="ressources/search.js"></script>
+<a href="?section=addUser"><button type="button" class="btn btn-outline-primary">Ajouter administrateur</button></a>
 <input class="form-control" id="searchBar" type="text" placeholder="Recherche" onkeyup="searchUser()">
 <ul class="list-group" id="ulUsers">
     <?php
@@ -18,7 +19,7 @@
                 $_SESSION['fail'] = false;
             }
         foreach ($users as $user) {
-            echo '<li class="list-group-item"><span>'.$user['login'].          
+            echo '<li class="list-group-item"><span>'.$user['id'].' '.$user['login'].          
             '</span><a href="?section=modifyUser&login='.$user['login'].'"><button type="button" class="btn btn-outline-success float-right">Modifier</button></a>';
             if($_SESSION['login'] != $user['login'])
                 echo '<a href="?section=users&action=rmUser&id='.$user['id'].'"><button type="button" class="btn btn-outline-danger float-right" Onclick="return confirm(\'Etes-vous sûr ?\')">Supprimer</button></a></li>';

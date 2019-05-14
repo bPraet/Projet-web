@@ -14,6 +14,13 @@
             $query->closeCursor();
         }
 
+        public static function addAdmin($login, $password, $name, $firstname, $email){
+            $db = db::connect();
+            $query = $db->prepare("INSERT INTO users (login, password, statusId, name, firstname, email) VALUES (?,?,1,?,?,?)");
+            $query->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $name, $firstname, $email));
+            $query->closeCursor();
+        }
+
         public static function remove($id){ 
             $db = db::connect();
             $query = $db->prepare("DELETE FROM users WHERE id = :id");

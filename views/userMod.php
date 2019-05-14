@@ -6,6 +6,7 @@
 <div class="modifyForm">
     <form action="userMod?login=<?php echo $_SESSION['login']; ?>" method="post" class="d-flex flex-column" required>
       Login<input type="text" name="login" value=<?php echo '"'.$user->get('login').'"'?> required>
+      Password<input type="password" name="password">
       Name<input type="text" name="name" value=<?php echo '"'.$user->get('name').'"'?> required>
       Firstname<input type="text" name="firstname" value=<?php echo '"'.$user->get('firstname').'"'?> required>
       Email<input type="email" name="email" value=<?php echo '"'.$user->get('email').'"'?> required>
