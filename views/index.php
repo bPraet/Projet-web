@@ -20,7 +20,12 @@
     if($_SESSION['fail'] == true){
       echo "<div class='alert alert-danger' role='alert'>Login déjà utilisé, modification impossible...</div>";
       $_SESSION['fail'] = false;
-  }
+    }
+  if(isset($_SESSION['orderComplete']))
+    if($_SESSION['orderComplete'] == true){
+      echo "<div class='alert alert-success' role='alert'>Merci de votre achat !</div>";
+      $_SESSION['orderComplete'] = false;
+    }
 ?>
 
 <!-- slide -->

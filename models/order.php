@@ -6,6 +6,7 @@
         private $total;
         private $date;
         private $adress;
+        private $transactionId;
 
         public static function add($idUser, $total, $adress){
             $db = db::connect();
@@ -55,6 +56,16 @@
             return $orders;
         }
 
+        public static function getOrder($id){
+            $db = db::connect();
+            $query = $db->prepare('SELECT * FROM orders WHERE id = :id');
+            $query->bindvalue(':id', $id);
+            $query->execute();
+            $order = $query->fetchAll();
+            $query->closeCursor();
+            return $order;
+        }
+
         public static function getCurrentYearOrders(){
             $db = db::connect();
             $query = $db->prepare('SELECT MONTH(date) AS mois,COUNT(id) AS nb FROM orders WHERE YEAR(date) = YEAR(CURDATE()) GROUP BY MONTH(date)');
@@ -72,6 +83,15 @@
             $orders = $query->fetch();
             $query->closeCursor();
             return $orders;
+        }
+
+        public static function addTransactionId($id, $transactionId){
+            $db = db::connect();
+            $query = $db->prepare("UPDATE orders SET transactionId = :transactionId WHERE id = :id");
+            $query->bindvalue(':transactionId', $transactionId);
+            $query->bindvalue(':id', $id);
+            $query->execute();
+            $query->closeCursor();
         }
 
         public function get($value){
