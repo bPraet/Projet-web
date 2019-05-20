@@ -49,15 +49,11 @@
                 break;
         }
     }
-    else{//graphique
-      //test
-      $chartValues = array_fill(1, 12, 0);
-      foreach ($currentYearOrders as $order) {
-        $chartValues[$order['mois']] = $order['nb'];
-      }
+    else{//graphiques
+      
       echo "<script type='text/javascript'>
-      function chart(){
-        var ctx = document.getElementById('chart').getContext('2d');
+      function chartLine(){
+        var ctx = document.getElementById('chartLine').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
             type: 'line',
@@ -80,11 +76,35 @@
             options: {}
         });
     }
+      function chartPie(){
+            ctx = document.getElementById('chartPie').getContext('2d');
+            chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    label: 'Produits',
+                    data: [".$best[0]['nombre'].", ".$best[1]['nombre'].", ".$best[2]['nombre']."],
+                    backgroundColor: ['#0074D9', '#FF4136', '#2ECC40']
+                }],
+                labels: ['".$best[0]['name']."','".$best[1]['name']."','".$best[2]['name']."']
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display: true,
+                    text: 'Meilleures ventes'
+                }
+            }
+            });
+      }
     
     $(document).ready(function () {
-        chart();
+        chartLine();
+        chartPie();
     });
-      </script><div id='chartContainer'><canvas id='chart'></canvas></div>";
+      </script>
+      <div class='chartContainer'><canvas id='chartLine'></canvas></div>
+      <div class='chartContainer'><canvas id='chartPie'></canvas></div>";
     }
     
 

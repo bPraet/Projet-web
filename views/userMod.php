@@ -25,7 +25,8 @@
            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.$i.'" aria-expanded="false" aria-controls="collapse'.$i.'">n°'
            .$order['id'].' '.Order::getStatus($order['idStatus'])['name'];
            if(Order::getStatus($order['idStatus'])['name'] == 'en attente')
-            echo '<a href="order?id='.$order['id'].'"><button type="button" class="btn btn-outline-success float-right">Payer la commande</button></a>';
+            echo '<a href="order?id='.$order['id'].'"><button type="button" class="btn btn-outline-success float-right">Payer la commande</button></a>
+            <a href="?action=rmOrder&id='.$order['id'].'"><button type="button" class="btn btn-outline-danger float-right" Onclick="return confirm(\'Etes-vous sûr ?\')">Annuler</button></a>';
            echo '</button>
           </h2>
      </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 13 mai 2019 à 18:23
+-- Généré le :  lun. 20 mai 2019 à 18:01
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -59,7 +59,14 @@ CREATE TABLE IF NOT EXISTS `carts` (
   PRIMARY KEY (`id`),
   KEY `idUser` (`idUser`),
   KEY `idProduct` (`idProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `carts`
+--
+
+INSERT INTO `carts` (`id`, `idUser`, `idProduct`) VALUES
+(6, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +106,20 @@ CREATE TABLE IF NOT EXISTS `orderedproducts` (
   PRIMARY KEY (`id`),
   KEY `idOrder` (`idOrder`),
   KEY `idProduct` (`idProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `orderedproducts`
+--
+
+INSERT INTO `orderedproducts` (`id`, `idOrder`, `idProduct`, `price`) VALUES
+(28, 25, 1, '9.99'),
+(29, 25, 4, '6.00'),
+(30, 26, 46, '8.00'),
+(31, 26, 47, '9.99'),
+(32, 26, 48, '10.00'),
+(33, 27, 4, '6.00'),
+(34, 27, 6, '6.99');
 
 -- --------------------------------------------------------
 
@@ -115,10 +135,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `total` decimal(12,2) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `adress` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `transactionId` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idUser` (`idUser`),
   KEY `idStatus` (`idStatus`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `orders`
+--
+
+INSERT INTO `orders` (`id`, `idUser`, `idStatus`, `total`, `date`, `adress`, `transactionId`) VALUES
+(25, 13, 3, '15.99', '2019-05-20', 'allard cambier 1 7160 PiÃ©ton Belgique', NULL),
+(26, 13, 1, '27.99', '2019-05-20', 'adresse 6000 charleroi Belgique', '31T50698RE489544R'),
+(27, 13, 2, '12.99', '2019-05-20', 'allard cambier 1 7160 PiÃ©ton Belgique', NULL);
 
 -- --------------------------------------------------------
 
@@ -131,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `orderstatus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `orderstatus`
@@ -139,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `orderstatus` (
 
 INSERT INTO `orderstatus` (`id`, `name`) VALUES
 (1, 'payÃ©'),
-(2, 'en attente');
+(2, 'en attente'),
+(3, 'AnnulÃ©');
 
 -- --------------------------------------------------------
 

@@ -8,6 +8,13 @@
     $bestProducts = Product::getBestProducts();
     $orders = Order::getAll();
     $currentYearOrders = Order::getCurrentYearOrders();
+    $best = Order::getBest();
+    $chartValues = array_fill(1, 12, 0);
+
+    foreach ($currentYearOrders as $order) {
+        $chartValues[$order['mois']] = $order['nb'];
+    }
+    
     if(isset($_GET['action']))
         if($_GET['action'] == 'rmUser'){
             User::remove($_GET['id']);

@@ -75,6 +75,17 @@
             return $orders;
         }
 
+        public static function getBest(){
+            $db = db::connect();
+            $query = $db->prepare('SELECT p.name, COUNT(op.id) AS nombre FROM orderedproducts AS op
+            INNER JOIN products AS p ON op.idProduct = p.id
+            GROUP BY idProduct ORDER BY COUNT(id) DESC LIMIT 3');
+            $query->execute();
+            $orders = $query->fetchAll();
+            $query->closeCursor();
+            return $orders;
+        }
+
         public static function getStatus($idStatus){
             $db = db::connect();
             $query = $db->prepare('SELECT name FROM orderStatus WHERE id = :id');
@@ -90,6 +101,14 @@
             $query = $db->prepare("UPDATE orders SET transactionId = :transactionId WHERE id = :id");
             $query->bindvalue(':transactionId', $transactionId);
             $query->bindvalue(':id', $id);
+            $query->execute();
+            $query->closeCursor();
+        }
+
+        public static function cancel($id){
+            $db = db::connect();
+            $query = $db->prepare("UPDATE orders SET idStatus = 3 WHERE id = :id");
+            $query->bindValue(':id', $id);
             $query->execute();
             $query->closeCursor();
         }
