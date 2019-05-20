@@ -6,4 +6,7 @@
 
     //URL
     $url = '/Projet-web-master';
+
+    //PAYPAL
+    $clientId = 'AWigU2xBvDd4ScJ7QSoB8ZqOfm3WPu61Ro5IgGr99ihrSMFqeMcrwTtM2C78rpevxylFN9Gl5Kq5HeYQ';
 ?>

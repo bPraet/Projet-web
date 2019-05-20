@@ -15,7 +15,7 @@
             $query->closeCursor();
         }
 
-        public function modify(){//TODO
+        public function modify(){
             $db = db::connect();
             $query = $db->prepare("UPDATE products SET name = ? WHERE id = ?");
             $query->execute(array($this->get("name"), $this->get("id")));

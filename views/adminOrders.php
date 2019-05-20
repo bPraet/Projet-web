@@ -21,8 +21,10 @@
         Client n°'.$order['idUser'].'<br>
         Commande effectuée le: '.$order['date'].'<br>
         Total: '.$order['total'].'€<br>
-        Adresse de livraison: '.$order['adress'].'<br>
-        </div></div></div></div>';
+        Adresse de livraison: '.$order['adress'].'<br>';
+        if(isset($order['transactionId']))
+          echo 'Référence de la transaction: '.$order['transactionId'];
+        echo '</div></div></div></div>';
         $i++;
         }
     ?>

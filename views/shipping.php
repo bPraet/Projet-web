@@ -6,11 +6,11 @@
         echo "<div class='alert alert-danger' role='alert'>Tous les champs n'ont pas été remplis</div>";
         $_SESSION['formFail'] = false;
     }
-  $cart = Cart::getTotal($_SESSION['id']);
+  
   if($cart['total'] != 0)
     echo '<h1>Livraison</h1>
     <div>
-        <form action="shipping" method="post" class="d-flex flex-column" required>
+        <form action="order" method="post" class="d-flex flex-column" required>
           <input type="text" name="adresse" placeholder="Adresse" required>
           <input type="text" name="code" placeholder="Code Postal" required>
           <input type="text" name="ville" placeholder="Ville" required>

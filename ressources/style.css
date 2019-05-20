@@ -64,6 +64,12 @@
   width: 60vw;
 }
 
+#payContainer{
+  margin: auto;
+  width: 60vw;
+  text-align: center;
+}
+
 .modifyForm{
   margin: auto;
   width: 30%;
