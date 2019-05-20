@@ -59,7 +59,7 @@
   width: 30%;
 }
 
-#chartContainer{
+.chartContainer{
   margin: auto;
   width: 60vw;
 }
