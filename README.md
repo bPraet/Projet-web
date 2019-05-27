@@ -1,6 +1,6 @@
 - Les imports de librairies sont fait directement depuis le serveur distant des développeurs une connexion internet est donc obligatoire.
 
-- Le fichier config.php situé dans le dossier ressources doit être complété
+- Le fichier config.php situé à la racine doit être complété
     $db_url -> serveur + nom de la DB
     $db_pass -> mot de passe de la DB
     $db_login -> login de la DB

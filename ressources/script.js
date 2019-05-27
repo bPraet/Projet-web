@@ -70,7 +70,10 @@ function modifyBestProduct3(){
         });
     });
 }
-
+function adminmenu(){
+    var element = document.getElementById("container");
+    element.classList.remove("wrapper");
+}
 
 $(document).ready(function () {
     $('select').select2();
