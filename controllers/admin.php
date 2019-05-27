@@ -38,5 +38,39 @@
         }
 
     
-    require 'views/admin.php';
+    include 'views/admin.php';
+    if(isset($_GET['section'])){
+        switch ($_GET['section']) {
+            case 'users':
+                include 'views/adminUsers.php';
+                break;
+
+            case 'addUser':
+                include 'views/adminAddUser.php';
+                break;
+            
+            case 'modifyUser':
+                include 'views/adminUserMod.php';
+                break;
+            
+            case 'products':
+                include 'views/adminProducts.php';
+                break;
+
+            case 'addProduct':
+                include 'views/adminAddProduct.php';
+                break;
+
+            case 'modifyProduct':
+                include 'views/adminProdMod.php';
+                break;
+
+            case 'orders':
+                include 'views/adminOrders.php';
+                break;
+        }
+    }
+    else{//graphiques
+      include 'ressources/charts.php';
+    }
 ?>

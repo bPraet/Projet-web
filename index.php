@@ -1,5 +1,5 @@
 <?php
-    require 'ressources/config.php';
+    require 'config.php';
 
     $request = str_replace($url, '', $_SERVER['REQUEST_URI']); // récupère tout après nom de domaine puis enlève les sous dossier
     $uri = parse_url($request, PHP_URL_PATH); // enlève les Get etc..
