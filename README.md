@@ -12,6 +12,7 @@
 - Le fichier pluch.sql situé à la racine est un dump de la DB, le shéma de cette DB est aussi disponible (pluchDB.png)
     comptes de test déjà enregistrés dans la DB:
 
+
               login - password
               ----------------
       Admin:  admin - test
